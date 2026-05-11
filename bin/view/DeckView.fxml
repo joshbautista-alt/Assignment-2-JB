@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.DeckController"
+      stylesheets="@/view/style.css"
+      prefWidth="300" alignment="CENTER">
+      <ListView fx:id="deckLv"/>
+      <HBox maxWidth="Infinity">
+            <Button text="Show Card" onAction="#handleShowCard" prefWidth="150"/>
+            <Button text="Close" onAction="#handleClose" prefWidth="150"/>
+      </HBox>
+</VBox>

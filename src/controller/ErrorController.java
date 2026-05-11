@@ -1,0 +1,7 @@
+package controller;
+
+import au.edu.uts.ap.javafx.Controller;
+
+public class ErrorController extends Controller<Exception> {
+
+}

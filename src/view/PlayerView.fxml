@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.PlayerController"
+      stylesheets="@/view/style.css">
+      <HBox styleClass="padding-medium"
+            spacing="20"
+            alignment="CENTER"
+            prefHeight="300">
+            <VBox prefWidth="320">
+                  <TableView fx:id="handTv" items="${controller.player.hand}">
+                  <placeholder><Label text="Empty"/></placeholder>
+                        <columns>
+                              <TableColumn text="Name"/>
+                              <TableColumn text="Attack"/>
+                              <TableColumn text="Style"/>
+                              <TableColumn text="Health"/>
+                        </columns>
+                  </TableView>
+                  <Button maxWidth="Infinity" text="Select" onAction="#handleSelect"/>
+            </VBox>
+            <VBox prefWidth="300">
+                  <ListView>
+                  </ListView>
+                  <Button maxWidth="Infinity" text="Place"/>
+            </VBox>
+            <ImageView fx:id="currentImg" preserveRatio="true" fitHeight="300" styleClass="padding-small">
+                  <image>
+                        <Image url="@image/cards/empty.png"/>
+                  </image>
+            </ImageView>
+      </HBox>
+</VBox>
+
