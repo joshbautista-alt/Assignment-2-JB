@@ -3,6 +3,7 @@
 <?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
@@ -16,21 +17,30 @@
             alignment="CENTER"
             prefHeight="300">
             <VBox prefWidth="320">
-                  <TableView fx:id="handTv" items="${controller.player.hand}">
+                  <TableView fx:id="handTv">
                   <placeholder><Label text="Empty"/></placeholder>
                         <columns>
-                              <TableColumn text="Name"/>
-                              <TableColumn text="Attack"/>
-                              <TableColumn text="Style"/>
-                              <TableColumn text="Health"/>
+                              <TableColumn text="Name">
+                                    <cellValueFactory><PropertyValueFactory property="name"/></cellValueFactory>
+                              </TableColumn>
+                              <TableColumn text="Attack">
+                                    <cellValueFactory><PropertyValueFactory property="attack"/></cellValueFactory>
+                              </TableColumn>
+                              <TableColumn text="Style">
+                                    <cellValueFactory><PropertyValueFactory property="style"/></cellValueFactory>
+                              </TableColumn>
+                              <TableColumn text="Health">
+                                    <cellValueFactory><PropertyValueFactory property="health"/></cellValueFactory>
+                              </TableColumn>
                         </columns>
                   </TableView>
-                  <Button maxWidth="Infinity" text="Select" onAction="#handleSelect"/>
+                  <Button maxWidth="Infinity" text="Select" onAction="#handleSelect" fx:id="selectBtn" disable="true"/>
             </VBox>
             <VBox prefWidth="300">
-                  <ListView>
+                  <ListView fx:id="tempHandLv">
+                  <placeholder><Label text="Empty"/></placeholder>
                   </ListView>
-                  <Button maxWidth="Infinity" text="Place"/>
+                  <Button maxWidth="Infinity" text="Place" onAction="#handlePlace" fx:id="placeBtn" disable="true"/>
             </VBox>
             <ImageView fx:id="currentImg" preserveRatio="true" fitHeight="300" styleClass="padding-small">
                   <image>

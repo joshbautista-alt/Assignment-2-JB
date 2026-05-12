@@ -57,6 +57,10 @@ public class Card {
         this.health.set(this.health.get() - damage);
     }
 
+    public String getPath() {
+        return "view/image/cards/" + getName().replaceAll("\\s+","").toLowerCase() + ".png";
+    }
+
     @Override
     public String toString() {
         return name.get();

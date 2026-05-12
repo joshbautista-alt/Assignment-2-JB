@@ -4,6 +4,8 @@ import au.edu.uts.ap.javafx.Controller;
 import au.edu.uts.ap.javafx.ViewLoader;
 import model.Dealer;
 import model.LoginModel;
+import model.exception.EmptyDeckException;
+import model.exception.RoundNotReadyException;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.event.*;
@@ -33,19 +35,28 @@ public class DealerController extends Controller<Dealer> {
     }
 
     @FXML private void handleShowSecondary(ActionEvent event) {
-        System.out.println("Showing Secondary Deck");
+        ViewLoader.showStage(getDealer().getSecondaryDeck(), "/view/DeckView.fxml", "Secondary Deck", new Stage());
     }
 
     @FXML private void handleCall(ActionEvent event) {
         System.out.println("Calling");
     }
 
-    @FXML private void handleDeal(ActionEvent event) {
-        System.out.println("Dealing");
+    @FXML private void handleDeal(ActionEvent event) throws EmptyDeckException {
+        try {
+            getDealer().deal(); 
+        } catch (Exception e) {
+
+        }
     }
 
-    @FXML private void handlePlayRound(ActionEvent event) {
-        System.out.println("Playing Round");
+    @FXML private void handlePlayRound(ActionEvent event) throws RoundNotReadyException {
+        try {
+            getDealer().play();
+            System.out.println("Playing");
+        } catch (Exception e) {
+            System.out.println("Round itns't reyd");
+        }
     }
 
     @FXML private void handleExit(ActionEvent event) {
